@@ -1,0 +1,171 @@
+$primary-color: #f5f5f5;
+$second-color: #20b2aa;
+
+@mixin buttons() {
+  color: $primary-color;
+  font-weight: bold;
+  background-color: $second-color;
+  border: 2px solid $primary-color;
+  border-radius: 5px;
+  display: block;
+  margin: 5px;
+  font-size: 12pt;
+  padding: 10px 60px;
+  box-sizing: content-box;
+  width: 100px;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #008B8B;
+  }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Bungee&family=Changa:wght@500&family=Quantico:ital@1&family=Roboto:wght@500&display=swap');
+
+.title {
+  font-family: 'Bungee', cursive;
+  font-size: 4em;
+  letter-spacing: 25px;
+  text-shadow: 2px 1px 2px #0C0C0C;
+}
+
+@mixin form-wallet {
+  padding: 5px;
+  margin: 2px;
+  border-radius: 5px;
+  border: 1px solid;
+
+  &:hover {
+    border: 1px solid #87cefa;
+  }
+}
+
+@mixin inputs() {
+  padding: 8px;
+  width: 200px;
+  margin-bottom: 5px;
+  border: 1px solid #000;
+  border-radius: 5px;
+}
+
+.login-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  vertical-align: middle;
+  width: 100vw;
+  height: 100vh;
+}
+
+.button-login {
+  @include buttons();
+}
+
+.input-form {
+  @include inputs();
+}
+
+.wallet-gif {
+  height: 300px;
+  width: 300px;
+  margin-bottom: 50px;
+}
+
+.form-wallet {
+  display: flex;
+  justify-content: space-around;
+  background-color: #dcdcdc;
+  padding: 20px;
+}
+
+.header-wallet {
+  padding: 30px;
+  background-color: $second-color;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.label-form {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 18px;
+}
+
+.header-wallet input,
+select {
+  @include form-wallet();
+}
+
+.input-wallet-form {
+  @include form-wallet();
+}
+
+.button-expenses {
+  color: $primary-color;
+  font-weight: bold;
+  background-color: $second-color;
+  border-radius: 5px;
+  padding: 12px;
+  cursor: pointer;
+  border: 2px solid $primary-color;
+
+  &:hover {
+    background-color: #008B8B;
+  }
+}
+
+.sum-total {
+  color: $primary-color;
+  font-weight: bolder;
+}
+
+.email-value {
+  margin-right: auto;
+  color: $primary-color;
+  font-weight: bold;
+}
+
+.table-new {
+  display: flex;
+  flex-direction: column;
+}
+
+.table-cel {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.table-add {
+  display: flex;
+  justify-content: space-around;
+}
+
+@mixin buttons-expenses {
+  padding: 8px 10px;
+  margin: 5px;
+  color: $primary-color;
+  background-color: $second-color;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.button-delete {
+  @include buttons-expenses();
+
+  &:hover {
+    background-color: #CD0000;
+    color: #0C0C0C;
+    opacity: 0.7;
+  }
+}
+
+.button-edit {
+  @include buttons-expenses();
+
+  &:hover {
+    background-color: #DAA520;
+    color: #0C0C0C;
+    opacity: 0.6;
+  }
+}

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { saveEmail } from '../actions';
+import '../css/main.css';
 
 class Login extends React.Component {
   constructor() {
@@ -38,27 +39,34 @@ class Login extends React.Component {
     };
 
     return (
-      <fieldset>
+      <main className="login-form">
+        <span className="title">WALLET</span>
+        <img src={ require('./gifWallet.gif') } alt="wallet" className="wallet-gif" />
         <input
+          className="input-form"
+          placeholder="E-mail"
           type="text"
           name="email"
           data-testid="email-input"
           onChange={ this.handleChange }
         />
         <input
-          type="text"
+          className="input-form"
+          type="password"
           name="password"
+          placeholder="Password"
           data-testid="password-input"
           onChange={ this.handleChange }
         />
         <button
+          className="button-login"
           type="submit"
           disabled={ !(verifiedEmail() && passwordCorrect) }
           onClick={ this.onSubmitLogin }
         >
           Entrar
         </button>
-      </fieldset>
+      </main>
     );
   }
 }

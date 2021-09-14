@@ -27,10 +27,10 @@ class Wallet extends React.Component {
     const { emailValue } = this.props;
     return (
       <div>
-        <header>
-          <span data-testid="email-field">{ emailValue }</span>
-          <span data-testid="total-field">{ this.sumTotal() }</span>
-          <span data-testid="header-currency-field">BRL</span>
+        <header className="header-wallet">
+          <span data-testid="email-field" className="email-value">{ emailValue }</span>
+          <span data-testid="total-field" className="sum-total">{ this.sumTotal() }</span>
+          <span data-testid="header-currency-field" className="sum-total">BRL</span>
         </header>
         <FormWallet />
       </div>

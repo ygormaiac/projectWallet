@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { convertValue, valueCambio } from '../actions';
 import ButtonAdd from './ButtonAdd';
+import TableExpenses from './TableExpenses';
 
 class FormWallet extends React.Component {
   constructor() {
@@ -12,9 +13,9 @@ class FormWallet extends React.Component {
       id: 0,
       value: '',
       description: '',
-      currency: '',
-      method: '',
-      tag: '',
+      currency: 'USD',
+      method: 'Dinheiro',
+      tag: 'Alimentação',
     };
     this.handleChange = this.handleChange.bind(this);
     this.onSavedAdd = this.onSavedAdd.bind(this);
@@ -42,16 +43,27 @@ class FormWallet extends React.Component {
     const arrayCurrencies = Object.keys(currencies);
 
     return (
-      <form>
-        <label htmlFor="value">
+      <div>
+      <form className="form-wallet">
+        <label htmlFor="value" className="label-form">
           Valor
-          <input type="text" id="value" onChange={ this.handleChange } />
+          <input
+            className="input-wallet-form"
+            type="text" 
+            id="value" 
+            onChange={ this.handleChange } 
+          />
         </label>
-        <label htmlFor="description">
+        <label htmlFor="description" className="label-form">
           Descrição
-          <input type="text" id="description" onChange={ this.handleChange } />
+          <input
+            className="input-wallet-form"
+            type="text" 
+            id="description" 
+            onChange={ this.handleChange } 
+            />
         </label>
-        <label htmlFor="currency">
+        <label htmlFor="currency" className="label-form">
           Moeda
           <select id="currency" onChange={ this.handleChange }>
             {arrayCurrencies.map((state, index) => (
@@ -64,7 +76,7 @@ class FormWallet extends React.Component {
             ))}
           </select>
         </label>
-        <label htmlFor="method">
+        <label htmlFor="method" className="label-form">
           Método de pagamento
           <select id="method" onChange={ this.handleChange }>
             <option>Dinheiro</option>
@@ -72,7 +84,7 @@ class FormWallet extends React.Component {
             <option>Cartão de débito</option>
           </select>
         </label>
-        <label htmlFor="tag">
+        <label htmlFor="tag" className="label-form">
           Tag
           <select id="tag" onChange={ this.handleChange }>
             <option>Alimentação</option>
@@ -84,6 +96,10 @@ class FormWallet extends React.Component {
         </label>
         <ButtonAdd onClick={ this.onSavedAdd } />
       </form>
+      <form>
+      <TableExpenses />
+      </form>
+      </div>
     );
   }
 }

@@ -5,7 +5,12 @@ class ButtonAdd extends React.Component {
   render() {
     const { onClick } = this.props;
     return (
-      <input type="button" value="Adicionar despesa" onClick={ () => onClick() } />
+      <input
+        className="button-expenses"
+        type="button"
+        value="Adicionar despesa"
+        onClick={ () => onClick() }
+      />
     );
   }
 }
