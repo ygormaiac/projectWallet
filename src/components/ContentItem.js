@@ -43,7 +43,7 @@ class ContentItem extends React.Component {
     const roundedRate = Math.round((rate) * 100) / 100;
 
     return (
-      <tr className="table-add">
+      <tr className="table-new">
         <td>{description}</td>
         <td>{tag}</td>
         <td>{method}</td>
