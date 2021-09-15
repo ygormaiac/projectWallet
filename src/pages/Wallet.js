@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import FormWallet from '../components/FormWallet';
+import '../css/main.css';
 
 class Wallet extends React.Component {
   constructor() {
@@ -28,6 +29,7 @@ class Wallet extends React.Component {
     return (
       <div>
         <header className="header-wallet">
+          <img src={ require('./gifWallet.gif') } alt="wallet" className="wallet-header" />
           <span data-testid="email-field" className="email-value">{ emailValue }</span>
           <span data-testid="total-field" className="sum-total">{ this.sumTotal() }</span>
           <span data-testid="header-currency-field" className="sum-total">BRL</span>

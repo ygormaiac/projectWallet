@@ -1,4 +1,4 @@
-import { CAMBIO_CHANGE, CONVERT_VALUE } from '../actions/index';
+import { CAMBIO_CHANGE, CONVERT_VALUE, REFRESH_EXPENSES } from '../actions/index';
 
 const INITIAL_STATE = {
   currencies: [],
@@ -11,6 +11,8 @@ const walletReducer = (state = INITIAL_STATE, action) => {
     return { ...state, currencies: action.payload };
   case CONVERT_VALUE:
     return { ...state, expenses: [...state.expenses, action.payload] };
+  case REFRESH_EXPENSES:
+    return { ...state, expenses: action.payload };
   default:
     return state;
   }

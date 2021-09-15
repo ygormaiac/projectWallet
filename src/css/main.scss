@@ -125,19 +125,20 @@ select {
   font-weight: bold;
 }
 
-.main-table {
-  width: 100vw;
-  height: 100vh;
-  display: grid;
-  grid: 1fr 10fr 1fr / 1fr 1fr;
-}
-
 .table-new {
+  justify-content: space-evenly;
   padding: 20px;
   width:100%;
   height:100%;
-  text-align:center;
-  background:lightgrey;
+  text-align: center;
+  background-color: #F8F8FF;
+  border: 1px solid #0C0C0C;
+}
+
+.wallet-header {
+  width: 60px;
+  height: 60px;
+  margin-right: 50px;
 }
 
 @mixin buttons-expenses {
@@ -151,20 +152,22 @@ select {
 }
 .button-delete {
   @include buttons-expenses();
+  border: 1px solid #0C0C0C;
 
   &:hover {
     background-color: #CD0000;
     color: #0C0C0C;
-    opacity: 0.7;
+    // opacity: 0.7;
   }
 }
 
 .button-edit {
   @include buttons-expenses();
+  border: 1px solid #0C0C0C;
 
   &:hover {
     background-color: #DAA520;
     color: #0C0C0C;
-    opacity: 0.6;
+    // opacity: 0.6;
   }
 }

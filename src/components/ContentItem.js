@@ -1,12 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
+// import Button from 'react-bootstrap/Button';
 import { BiTrash, BiEditAlt } from 'react-icons/bi';
+import { refreshItems } from '../actions';
 // import { addExpense, convertValue, refreshItems } from '../actions';
 
 class ContentItem extends React.Component {
   constructor(props) {
     super(props);
     this.getCurrencyName = this.getCurrencyName.bind(this);
+    this.deleteItem = this.deleteItem.bind(this);
   }
 
   getCurrencyName(exchangeRates, currency) {
@@ -25,13 +28,14 @@ class ContentItem extends React.Component {
     return valueTotal;
   }
 
-  // deleteItem(expense) {
-  //   const { expenses } = this.props;
-  //   const index = expenses.indexOf(expense);
-  //   const newExpenses = [...expenses];
-  //   newExpenses.splice(index, 1);
-  //   // newExpenses = newExpenses.map((expense, i) => ({ ...expense, id: i }));
-  // }
+  deleteItem(expense) {
+    const { expenses, replaceExpenses } = this.props;
+    const index = expenses.indexOf(expense);
+    const newExpenses = [...expenses];
+    newExpenses.splice(index, 1);
+    // newExpenses = newExpenses.map((expense, i) => ({ ...expense, id: i }));
+    replaceExpenses(newExpenses);
+  }
 
 
   render() {
@@ -43,7 +47,7 @@ class ContentItem extends React.Component {
     const roundedRate = Math.round((rate) * 100) / 100;
 
     return (
-      <tr className="table-new">
+      <tr className="table-add">
         <td>{description}</td>
         <td>{tag}</td>
         <td>{method}</td>
@@ -57,6 +61,7 @@ class ContentItem extends React.Component {
             type="button"
             data-testid="delete-btn"
             className="button-delete"
+            onClick={ this.deleteItem }
           >
             <BiTrash />
           </button>
@@ -65,7 +70,7 @@ class ContentItem extends React.Component {
             data-testid="edit-btn"
             className="button-edit"
           >
-            <BiEditAlt />
+           <BiEditAlt />
           </button>
         </td>
       </tr>
@@ -77,4 +82,8 @@ const mapStateToProps = (state) => ({
   expenses: state.wallet.expenses,
 });
 
-export default connect(mapStateToProps)(ContentItem);
+const mapDispatchToProps = (dispatch) => ({
+  replaceExpenses: (payload) => dispatch(refreshItems(payload)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ContentItem);
