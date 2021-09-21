@@ -1,5 +1,5 @@
 $primary-color: #f5f5f5;
-$second-color: #20b2aa;
+$second-color: #58B095;
 
 @mixin buttons() {
   color: $primary-color;
@@ -75,7 +75,7 @@ $second-color: #20b2aa;
 .form-wallet {
   display: flex;
   justify-content: space-around;
-  background-color: #dcdcdc;
+  background-color: #362C5E;
   padding: 20px;
 }
 

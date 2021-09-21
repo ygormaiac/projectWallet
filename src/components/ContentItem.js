@@ -48,7 +48,7 @@ class ContentItem extends React.Component {
 
     return (
       <tr className="table-add">
-        <td>{description}</td>
+        <td className="cedula">{description}</td>
         <td>{tag}</td>
         <td>{method}</td>
         <td>{`${value}`}</td>

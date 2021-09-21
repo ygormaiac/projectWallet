@@ -9,7 +9,7 @@ class TableExpenses extends React.Component {
     return (
       <main className="main-table">
         <table className="table-new">
-          <tr>
+          <tr className="cedula">
             <th>Descrição</th>
             <th>Tag</th>
             <th>Método de pagamento</th>
